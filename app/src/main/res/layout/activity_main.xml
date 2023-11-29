@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".menuInicial">
+
+    <!-- Orange Banner at the top -->
+    <LinearLayout
+        android:id="@+id/orangeBanner"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#000"
+        android:gravity="center_horizontal" >
+
+        <!-- Image at the top left corner of the banner -->
+        <ImageView
+            android:id="@+id/bannerImage"
+            android:layout_width="231dp"
+            android:layout_height="74dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/white_ipvcv3" />
+
+
+    </LinearLayout>
+    <!-- Middle -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120dp"
+            android:ems="10"
+            android:textSize="17sp"
+            android:hint="username"
+            android:id="@+id/username"
+            android:text="Insira o seu nome: "
+            android:focusable="true"
+            android:layout_centerInParent="true" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/password"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:textSize="17sp"
+            android:layout_below="@id/username"
+            android:layout_alignRight="@id/username"
+            android:layout_alignEnd="@id/username"
+            android:text="Password: "
+            android:hint="Password" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/login"
+            style="@style/Grey_Background"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/password"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="25dp"
+            android:onClick="login"
+            android:text="Login"
+            android:textColor="@color/black" />
+    </RelativeLayout>
+
+    <!-- Bottom -->
+
+
+</RelativeLayout>

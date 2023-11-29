@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- Orange Banner at the top -->
+    <RelativeLayout
+        android:id="@+id/orangeBanner"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:background="#F3AB1D">
+
+        <!-- Image at the top left corner of the banner -->
+        <ImageView
+            android:id="@+id/bannerImage"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="-8dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ipvc" />
+
+        <TextView
+            android:id="@+id/textBusAcademico"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="21dp"
+            android:layout_marginEnd="47dp"
+            android:fontFamily="@font/barlowlight"
+            android:text="Bus Academico"
+            android:textColor="#1c1810"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+
+    <!-- Middle -->
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/orangeBanner"
+    android:layout_above="@+id/bottomBanner">
+    <LinearLayout
+        android:id="@+id/middleContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/orangeBanner"
+        android:layout_above="@id/bottomBanner">
+
+        <!-- First row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- First TextView and EditText -->
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nome"
+                android:textSize="18sp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- EditText -->
+            <EditText
+                android:id="@+id/nomeedit"                            android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pedro Rodrigo Maria Ferreira"
+                android:inputType="text"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- First TextView and EditText -->
+            <TextView
+                android:id="@+id/textViewemali"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nome"
+                android:textSize="18sp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- EditText -->
+            <EditText
+                android:id="@+id/editTextmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="pedrojose@gmail.com"
+                android:inputType="text"/>
+        </LinearLayout>
+
+        <!-- Repeat for the remaining rows -->
+
+        <!-- Second row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Third TextView and EditText -->
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="30dp"
+                android:layout_weight="1"
+                android:text="Escola:"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/editText3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_weight="1"
+                android:text="ESTG" />
+
+            <!-- Fourth TextView and EditText -->
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_weight="1"
+                android:text="Numero:"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/editText4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_weight="1"
+                android:text="28437" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Third TextView and EditText -->
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="30dp"
+                android:layout_weight="1"
+                android:text="Curso:"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/editText5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_weight="1"
+                android:text="ERSC" />
+
+            <!-- Fourth TextView and EditText -->
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_weight="1"
+                android:text="NIF:"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/editText6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_weight="1"
+                android:text="986743278"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+
+            <!-- Third TextView and EditText -->
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="4dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="25dp"
+                android:layout_weight="1"
+                android:text="Telemovel"
+                android:textSize="20sp" />
+
+            <!-- Fourth TextView and EditText -->
+
+            <EditText
+                android:id="@+id/editText7"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_weight="1"
+                android:text="912345678" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_weight="1"
+                android:text="NISS:"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/editText8"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_weight="1"
+                android:text="43278954" />
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+</ScrollView>
+
+
+
+
+
+
+    <!-- Bottom -->
+
+
+    <RelativeLayout
+        android:id="@+id/bottomBanner"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:background="#F3AB1D"
+        android:layout_alignParentBottom="true">
+
+
+        <LinearLayout
+            android:id="@+id/buttonContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <!-- Bottom  buttons -->
+            <ImageButton
+                android:id="@+id/route"
+                android:layout_width="90dp"
+                android:layout_height="60dp"
+                android:src="@drawable/route"
+                android:scaleType="fitCenter"
+                android:background="@android:color/transparent"
+                android:contentDescription="Route Button"
+                android:onClick="Rotas"
+                android:layout_marginEnd="8dp" />
+
+            <ImageButton
+                android:id="@+id/hist"
+                android:layout_width="70dp"
+                android:layout_height="60dp"
+                android:src="@drawable/hist"
+                android:scaleType="fitCenter"
+                android:background="@android:color/transparent"
+                android:contentDescription="History Button"
+                android:layout_marginEnd="8dp"
+                android:onClick="swaphistory"/>
+
+            <ImageButton
+                android:id="@+id/pay"
+                android:layout_width="70dp"
+                android:layout_height="60dp"
+                android:src="@drawable/payment"
+                android:scaleType="fitCenter"
+                android:background="@android:color/transparent"
+                android:contentDescription="Payment Button"
+                android:layout_marginEnd="8dp"
+                android:onClick="buyticket"/>
+
+            <ImageButton
+                android:id="@+id/card"
+                android:layout_width="70dp"
+                android:layout_height="60dp"
+                android:src="@drawable/card"
+                android:scaleType="fitCenter"
+                android:background="@android:color/transparent"
+                android:contentDescription="Card Button"
+                android:layout_marginEnd="8dp"
+                android:onClick="cartao_digital"/>
+
+            <ImageButton
+                android:id="@+id/inf"
+                android:layout_width="70dp"
+                android:layout_height="60dp"
+                android:src="@drawable/info"
+                android:scaleType="fitCenter"
+                android:background="@android:color/transparent"
+                android:contentDescription="Info Button"
+                android:layout_marginEnd="8dp" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- Other content above the bottom banner -->
+    <!-- Add your other UI elements here -->
+
+</RelativeLayout>

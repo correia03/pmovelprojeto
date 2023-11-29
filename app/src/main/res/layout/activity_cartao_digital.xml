@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".cartaoDigital">
+
+    <!-- Orange Banner at the top -->
+    <RelativeLayout
+        android:id="@+id/orangeBanner"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#F3AB1D">
+
+        <!-- Image at the top left corner of the banner -->
+        <ImageView
+            android:id="@+id/bannerImage"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="-8dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ipvc" />
+
+        <TextView
+            android:id="@+id/textBusAcademico"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="21dp"
+            android:layout_marginEnd="47dp"
+            android:fontFamily="@font/barlowlight"
+            android:text="Bus Academico"
+            android:textColor="#1c1810"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+    <!-- Middle -->
+    <RelativeLayout
+        android:layout_width="1000dp"
+        android:layout_height="525dp"
+        android:layout_centerInParent="true">
+
+        <LinearLayout
+            android:id="@+id/linear1"
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/butfrente"
+                style="@style/RectangleButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:text="frente"></androidx.appcompat.widget.AppCompatButton>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/buttras"
+                style="@style/RectangleButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:text="verso"></androidx.appcompat.widget.AppCompatButton>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/cartao"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@+id/linear1"
+            android:background="#808080"
+            android:text="fetch card"
+            android:textAlignment="center"
+            android:textSize="30sp"></TextView>
+
+        <TextView
+            android:id="@+id/textsaldo"
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/cartao"
+            android:layout_marginTop="20dp"
+            android:text="saldo :"
+            android:textSize="20sp"></TextView>
+
+        <TextView
+            android:id="@+id/saldo"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/cartao"
+            android:layout_marginTop="20dp"
+            android:layout_toRightOf="@+id/textsaldo"
+            android:text="fetch saldo"
+            android:textSize="20sp"></TextView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/butcarregar"
+            style="@style/RectangleButtonStylecarregar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/saldo"
+            android:layout_marginTop="20dp"
+            android:text="carregar cartão"
+            android:textSize="20sp"
+            android:onClick="carregarcartao"></androidx.appcompat.widget.AppCompatButton>
+    </RelativeLayout>
+
+
+
+    <!-- Bottom -->
+
+    <RelativeLayout
+        android:id="@+id/bottomBanner"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#F3AB1D"
+        android:layout_alignParentBottom="true">
+
+
+        <LinearLayout
+            android:id="@+id/buttonContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <!-- Bottom  buttons -->
+            <ImageButton
+                android:id="@+id/route"
+                android:layout_width="90dp"
+                android:layout_height="60dp"
+                android:src="@drawable/route"
+                android:scaleType="fitCenter"
+                android:background="@android:color/transparent"
+                android:contentDescription="Route Button"
+                android:onClick="Rotas"
+                android:layout_marginEnd="8dp" />
+
+            <ImageButton
+                android:id="@+id/hist"
+                android:layout_width="70dp"
+                android:layout_height="60dp"
+                android:src="@drawable/hist"
+                android:scaleType="fitCenter"
+                android:background="@android:color/transparent"
+                android:contentDescription="History Button"
+                android:layout_marginEnd="8dp"
+                android:onClick="swaphistory"/>
+
+            <ImageButton
+                android:id="@+id/pay"
+                android:layout_width="70dp"
+                android:layout_height="60dp"
+                android:src="@drawable/payment"
+                android:scaleType="fitCenter"
+                android:background="@android:color/transparent"
+                android:contentDescription="Payment Button"
+                android:layout_marginEnd="8dp"
+                android:onClick="buyticket"/>
+
+            <ImageButton
+                android:id="@+id/card"
+                android:layout_width="70dp"
+                android:layout_height="60dp"
+                android:src="@drawable/card"
+                android:scaleType="fitCenter"
+                android:background="@android:color/transparent"
+                android:contentDescription="Card Button"
+                android:layout_marginEnd="8dp" />
+
+            <ImageButton
+                android:id="@+id/inf"
+                android:layout_width="70dp"
+                android:layout_height="60dp"
+                android:src="@drawable/info"
+                android:scaleType="fitCenter"
+                android:background="@android:color/transparent"
+                android:contentDescription="Info Button"
+                android:layout_marginEnd="8dp"
+                android:onClick="personalinfo"
+                />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <!-- Other content above the bottom banner -->
+    <!-- Add your other UI elements here -->
+
+</RelativeLayout>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".carregar_cartao">
+    <RelativeLayout
+        android:id="@+id/orangeBanner"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#F3AB1D"
+        >
+
+        <!-- Image at the top left corner of the banner -->
+        <ImageView
+            android:id="@+id/bannerImage"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="-8dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ipvc" />
+
+        <TextView
+            android:id="@+id/textBusAcademico"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="21dp"
+            android:layout_marginEnd="47dp"
+            android:fontFamily="@font/barlowlight"
+            android:text="Bus Academico"
+            android:textColor="#1c1810"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+    <!-- Middle -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/orangeBanner">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/orangeBanner"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewpagaemnto"
+                android:layout_marginTop="75dp"
+                android:text="selecione um metodo de pagamento:"
+                android:textSize="24sp"></TextView>
+            <!-- 3 buttoes na horzintal 1 paypal 2 mbway 3 multibanco-->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/multibanco"
+                style="@style/RectangleButtonStylemultibanco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginHorizontal="10dp"
+                android:drawableRight="@drawable/multibanco"
+                android:layout_below="@+id/mbway"
+                android:text="referencia multibanco"
+                android:textSize="18sp"></androidx.appcompat.widget.AppCompatButton>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/mbway"
+                style="@style/RectangleButtonStylembway"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewpagaemnto"
+                android:layout_centerInParent="true"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginBottom="10dp"
+                android:drawableRight="@drawable/mbway"
+                android:text="mbway"
+                android:textSize="18sp"></androidx.appcompat.widget.AppCompatButton>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/paypal"
+                style="@style/RectangleButtonStylepaypal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/multibanco"
+                android:layout_centerInParent="true"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="10dp"
+                android:drawableRight="@drawable/paypallogo"
+                android:text="paypal"
+                android:textSize="18sp"></androidx.appcompat.widget.AppCompatButton>
+
+            <Button
+                android:id="@+id/voltar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/paypal"
+                android:layout_centerInParent="true"
+                android:backgroundTint="#808080"
+                android:onClick="voltartras"
+                android:text="voltar"
+                android:textSize="18sp"></Button>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
