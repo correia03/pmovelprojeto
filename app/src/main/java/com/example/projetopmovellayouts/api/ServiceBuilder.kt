@@ -1,4 +1,4 @@
-package com.example.retrofit_26617.api
+package com.example.projetopmovellayouts.api
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

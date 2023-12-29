@@ -1,11 +1,5 @@
-package com.example.retrofit_26617.api
+package com.example.projetopmovellayouts.api
 
-
-import com.example.projetopmovellayouts.api.AddSaldoResponse
-import com.example.projetopmovellayouts.api.Compras
-import com.example.projetopmovellayouts.api.InfoUser
-import com.example.projetopmovellayouts.api.LoginResponse
-import com.example.projetopmovellayouts.api.Rotas
 import retrofit2.Call
 import retrofit2.http.*
 
