@@ -1,0 +1,21 @@
+package com.example.retrofit_26617.api
+
+import okhttp3.OkHttpClient
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+
+object ServiceBuilder {
+
+    private val client = OkHttpClient.Builder().build()
+
+    // Replace "http://localhost:4242/" with your actual base URL
+    private val retrofit = Retrofit.Builder()
+        .baseUrl("http://localhost:4242/")
+        .addConverterFactory(GsonConverterFactory.create())
+        .client(client)
+        .build()
+
+    private fun <T> buildService(service: Class<T>): T {
+        return retrofit.create(service)
+    }
+}
