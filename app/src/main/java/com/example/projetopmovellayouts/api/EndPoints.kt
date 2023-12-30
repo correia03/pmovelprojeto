@@ -8,7 +8,7 @@ interface EndPoints {
     fun getInfoUser(@Path("id") id: Int): Call<InfoUser>
 
     @POST("/login")
-    fun loginUser(@Body loginResponse: LoginResponse): Call<Void>
+    fun loginUser(@Body loginResponse: LoginResponse): Call<LoginResponse>
 
     @GET("/getrotas")
     fun getRotas(): Call<List<Rotas>>
