@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ProjetoPmovellayouts</string>
+    <string name="UserId" translatable="false">-1</string>
 </resources>

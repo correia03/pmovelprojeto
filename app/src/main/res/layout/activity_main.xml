@@ -34,16 +34,16 @@
         android:layout_height="match_parent">
 
         <EditText
+            android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
             android:layout_marginTop="120dp"
             android:ems="10"
-            android:textSize="17sp"
-            android:hint="username"
-            android:id="@+id/username"
-            android:text="Insira o seu nome: "
             android:focusable="true"
-            android:layout_centerInParent="true" />
+            android:hint="username"
+            android:text="Insira o seu nome: "
+            android:textSize="17sp" />
 
         <EditText
             android:layout_width="wrap_content"

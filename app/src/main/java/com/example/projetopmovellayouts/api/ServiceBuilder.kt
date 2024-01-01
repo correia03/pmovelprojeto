@@ -10,12 +10,12 @@ object ServiceBuilder {
 
     // Replace "http://localhost:4242/" with your actual base URL
     private val retrofit = Retrofit.Builder()
-        .baseUrl("http://localhost:4242/")
+        .baseUrl("http://192.168.1.75:4242")
         .addConverterFactory(GsonConverterFactory.create())
         .client(client)
         .build()
 
-    private fun <T> buildService(service: Class<T>): T {
+    fun <T> buildService(service: Class<T>): T {
         return retrofit.create(service)
     }
 }

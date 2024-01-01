@@ -4,11 +4,11 @@ import retrofit2.Call
 import retrofit2.http.*
 
 interface EndPoints {
-    @GET("/api/info/getInfoUser/{id}")
+    @GET("/api/info/getinfouserid/{id}")
     fun getInfoUser(@Path("id") id: Int): Call<InfoUser>
 
-    @POST("/login")
-    fun loginUser(@Body loginResponse: LoginResponse): Call<LoginResponse>
+    @POST("/api/users/login")
+    fun loginUser(@Body username: String?, password: String?): Call<LoginResponse>
 
     @GET("/getrotas")
     fun getRotas(): Call<List<Rotas>>
