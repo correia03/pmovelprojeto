@@ -41,8 +41,7 @@
             android:layout_marginTop="120dp"
             android:ems="10"
             android:focusable="true"
-            android:hint="username"
-            android:text="Insira o seu nome: "
+            android:hint="Nome de Utilizador"
             android:textSize="17sp" />
 
         <EditText
@@ -55,8 +54,8 @@
             android:layout_below="@id/username"
             android:layout_alignRight="@id/username"
             android:layout_alignEnd="@id/username"
-            android:text="Password: "
-            android:hint="Password" />
+            android:hint="Palavra Passe"
+            android:inputType="textPassword"/>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/login"
