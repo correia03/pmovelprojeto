@@ -1,5 +1,6 @@
 package com.example.projetopmovellayouts
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -17,8 +18,19 @@ class Personalinfo : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_personalinfo)
+        //abrir o sharedpref recober o id do user
+// Create the EndPoints interface using ServiceBuilder
+        val sharedPreferences = getSharedPreferences("UserId", Context.MODE_PRIVATE)
+        val storedUserId = sharedPreferences.getString("token", "")
+        val userId: Int = try {
+            storedUserId?.toInt() ?: 0 // If the storedUserId is null, use a default value of 0
+        } catch (e: NumberFormatException) {
+            // Handle the case where the storedUserId cannot be converted to an integer
+            // You may want to log an error or provide a default value as needed
+            0
+        }
         val request = ServiceBuilder.buildService(EndPoints::class.java)
-        val call = request.getInfoUserId(1)
+        val call = request.getInfoUserId(userId)
         call.enqueue(object : Callback<InfoUser> {
             override fun onResponse(call: Call<InfoUser>, response: Response<InfoUser>) {
                 if (response.isSuccessful){

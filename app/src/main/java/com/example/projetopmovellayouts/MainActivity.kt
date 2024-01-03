@@ -37,9 +37,9 @@ class MainActivity : AppCompatActivity() {
     }
     fun login (view: View) {
         //start new activity name menuInicial
-        val intent = Intent(this, menuInicial::class.java)
-        startActivity(intent)
-        /*val usernameEditText = findViewById<EditText>(R.id.username)
+        //val intent = Intent(this, menuInicial::class.java)
+        //startActivity(intent)
+        val usernameEditText = findViewById<EditText>(R.id.username)
         val passwordEditText = findViewById<EditText>(R.id.password)
 
         val username = usernameEditText.text.toString()
@@ -56,10 +56,10 @@ class MainActivity : AppCompatActivity() {
         println("username: $username")
         println("password: $password")
         val loginRequest = LoginRequest(username,password)
-        /val call = request.loginUser(loginRequest)
+        val call = request.loginUser(loginRequest)
 
         call.enqueue(object : Callback<LoginResponse> {
-            override fun onResponse(call: Call<LoginRequest>, response: Response<LoginResponse>) {
+            override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 if (response.isSuccessful) {
                     // Save token in SharedPreferences upon successful login
                     val token = response.body()?.token ?: ""
@@ -88,12 +88,12 @@ class MainActivity : AppCompatActivity() {
                     Toast.LENGTH_SHORT
                 ).show()
             }
-        })*/
+        })
     }
-/*    private fun saveTokenInSharedPreferences(token: String) {
+   private fun saveTokenInSharedPreferences(token: String) {
         val sharedPreferences = getSharedPreferences("UserId", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.putString("token", token)
         editor.apply()
-    }*/
+    }
 }
