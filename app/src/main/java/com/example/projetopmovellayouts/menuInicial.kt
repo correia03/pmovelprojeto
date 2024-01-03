@@ -9,6 +9,7 @@ class menuInicial : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu_inicial)
+
     }
 
     fun cartao_digital(view: View) {

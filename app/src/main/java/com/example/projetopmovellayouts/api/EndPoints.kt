@@ -8,21 +8,21 @@ interface EndPoints {
     fun getInfoUser(@Path("id") id: Int): Call<InfoUser>
 
     @POST("/api/users/login")
-    fun loginUser(@Body username: String?, password: String?): Call<LoginResponse>
+    fun loginUser(@Body request:LoginRequest): Call<LoginResponse>
 
-    @GET("/getrotas")
-    fun getRotas(): Call<List<Rotas>>
+    @GET("api/rotas/getrotas")
+    fun getRotas(): Call<List<RotasInfo>>
 
-    @POST("/addsaldo")
-    fun addSaldo(@Body saldoResponse: AddSaldoResponse): Call<Void>
-
-    @GET("/getinfouserid/{userId}")
+    @GET("api/info/getinfouserid/{userId}")
     fun getInfoUserId(@Path("userId") userId: Int): Call<InfoUser>
 
-    @POST("/novacompras/{userId}/{rotasId}")
-    fun addCompra(@Path("userId") userId: Int, @Path("rotasId") rotasId: Int): Call<Void>
+    @POST("api/compras/addcompra")
+    fun fazerCompra(@Body compra: Compras): Call<Compras>
 
-    @GET("/getcompras")
+    @GET("api/compras/getcompras")
     fun getCompras(): Call<List<Compras>>
+
+    @POST("api/info/addsaldo")
+    fun addSaldo(@Body saldo: AddSaldoResponse): Call<AddSaldoResponse>
 
 }

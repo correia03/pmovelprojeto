@@ -68,45 +68,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_below="@+id/midtext">
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/month1"
-                    style="@style/yellow_button"
-                    android:layout_width="350dp"
-                    android:layout_height="25dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="20dp"
-                    android:text="Month: Janeiro"></androidx.appcompat.widget.AppCompatTextView>
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/history1"
-                    style="@style/grey_button"
-                    android:layout_width="300dp"
-                    android:layout_height="20dp"
-                    android:layout_below="@+id/month1"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="20dp"
-                    android:text="Fetch Data"></androidx.appcompat.widget.AppCompatTextView>
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/history2"
-                    style="@style/grey_button"
-                    android:layout_width="300dp"
-                    android:layout_height="20dp"
-                    android:layout_below="@+id/history1"
-                    android:layout_centerHorizontal="true"
+<ScrollView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
-                    android:text="Fetch Data"></androidx.appcompat.widget.AppCompatTextView>
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/history3"
-                    style="@style/grey_button"
-                    android:layout_width="300dp"
-                    android:layout_height="20dp"
-                    android:layout_below="@+id/history2"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="10dp"
-                    android:text="Fetch Data"></androidx.appcompat.widget.AppCompatTextView>
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp" />
+    </ScrollView>
 
             </RelativeLayout>
 

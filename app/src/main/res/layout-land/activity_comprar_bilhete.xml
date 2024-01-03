@@ -10,10 +10,16 @@
         <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerInParent="true">
             <androidx.appcompat.widget.AppCompatButton android:text="Fetch Data" android:id="@+id/midtext" android:layout_width="300dp" android:layout_height="65dp" android:layout_centerHorizontal="true" android:layout_marginTop="20dp" style="@style/yellow_button"> </androidx.appcompat.widget.AppCompatButton>
             <CalendarView android:id="@+id/calendarView" android:layout_width="match_parent" android:layout_height="300dp" android:layout_below="@+id/midtext" android:layout_marginTop="5dp"/>
-            <androidx.appcompat.widget.AppCompatButton android:text="Fetch Data" android:id="@+id/firstoption" android:layout_width="300dp" android:layout_height="65dp" android:layout_below="@+id/calendarView" android:layout_centerHorizontal="true" android:layout_marginTop="20dp" style="@style/grey_button"> </androidx.appcompat.widget.AppCompatButton>
-            <androidx.appcompat.widget.AppCompatButton android:text="Fetch Data" android:id="@+id/secondoption" android:layout_width="300dp" android:layout_height="65dp" android:layout_below="@+id/firstoption" android:layout_centerHorizontal="true" android:layout_marginTop="20dp" style="@style/grey_button"> </androidx.appcompat.widget.AppCompatButton>
-            <androidx.appcompat.widget.AppCompatButton android:text="Fetch Data" android:id="@+id/thirdoption" android:layout_width="300dp" android:layout_height="65dp" android:layout_below="@+id/secondoption" android:layout_centerHorizontal="true" android:layout_marginTop="20dp" style="@style/grey_button" android:layout_marginBottom="10dp"> </androidx.appcompat.widget.AppCompatButton>
-        </RelativeLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/calendarView"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp" />
+                    </RelativeLayout>
     </ScrollView>
     <!--  Bottom  -->
     <RelativeLayout android:id="@+id/bottomBanner" android:layout_width="match_parent" android:layout_height="75dp" android:background="#F3AB1D" android:layout_alignParentBottom="true">

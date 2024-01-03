@@ -4,12 +4,14 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.projetopmovellayouts.api.EndPoints
 import com.example.projetopmovellayouts.api.InfoUser
+import com.example.projetopmovellayouts.api.LoginRequest
 import com.example.projetopmovellayouts.api.LoginResponse
 import com.example.projetopmovellayouts.api.ServiceBuilder
 import com.example.projetopmovellayouts.api.Users
@@ -34,7 +36,10 @@ class MainActivity : AppCompatActivity() {
         endPoints = ServiceBuilder.buildService(EndPoints::class.java)
     }
     fun login (view: View) {
-        val usernameEditText = findViewById<EditText>(R.id.username)
+        //start new activity name menuInicial
+        val intent = Intent(this, menuInicial::class.java)
+        startActivity(intent)
+        /*val usernameEditText = findViewById<EditText>(R.id.username)
         val passwordEditText = findViewById<EditText>(R.id.password)
 
         val username = usernameEditText.text.toString()
@@ -50,11 +55,11 @@ class MainActivity : AppCompatActivity() {
         //console log username e password
         println("username: $username")
         println("password: $password")
-        val call = request.loginUser(username = username, password = password)
-
+        val loginRequest = LoginRequest(username,password)
+        /val call = request.loginUser(loginRequest)
 
         call.enqueue(object : Callback<LoginResponse> {
-            override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+            override fun onResponse(call: Call<LoginRequest>, response: Response<LoginResponse>) {
                 if (response.isSuccessful) {
                     // Save token in SharedPreferences upon successful login
                     val token = response.body()?.token ?: ""
@@ -74,6 +79,8 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                // Log the error message
+                Log.e("Login", "Error: ${t.message}")
                 // Handle failure, e.g., network issues
                 Toast.makeText(
                     this@MainActivity,
@@ -81,12 +88,12 @@ class MainActivity : AppCompatActivity() {
                     Toast.LENGTH_SHORT
                 ).show()
             }
-        })
+        })*/
     }
-    private fun saveTokenInSharedPreferences(token: String) {
+/*    private fun saveTokenInSharedPreferences(token: String) {
         val sharedPreferences = getSharedPreferences("UserId", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.putString("token", token)
         editor.apply()
-    }
+    }*/
 }

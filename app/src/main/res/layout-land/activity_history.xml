@@ -80,35 +80,15 @@
                     android:layout_marginTop="20dp"
                     android:text="Month: Janeiro"></androidx.appcompat.widget.AppCompatTextView>
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/history1"
-                    style="@style/grey_button"
-                    android:layout_width="300dp"
-                    android:layout_height="20dp"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_below="@+id/month1"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="20dp"
-                    android:text="Fetch Data"></androidx.appcompat.widget.AppCompatTextView>
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/history2"
-                    style="@style/grey_button"
-                    android:layout_width="300dp"
-                    android:layout_height="20dp"
-                    android:layout_below="@+id/history1"
-                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
-                    android:text="Fetch Data"></androidx.appcompat.widget.AppCompatTextView>
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/history3"
-                    style="@style/grey_button"
-                    android:layout_width="300dp"
-                    android:layout_height="20dp"
-                    android:layout_below="@+id/history2"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="10dp"
-                    android:text="Fetch Data"></androidx.appcompat.widget.AppCompatTextView>
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp" />
 
             </RelativeLayout>
 

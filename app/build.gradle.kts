@@ -36,7 +36,8 @@ android {
 }
 
 dependencies {
-
+// recycler
+    implementation ("androidx.recyclerview:recyclerview:1.1.0")
     // recycler
     implementation ("androidx.recyclerview:recyclerview:1.1.0")
 // retrofit

@@ -49,9 +49,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="75dp"
-            android:text="selecione um metodo de pagamento:"
-            android:textSize="24sp"></TextView>
+            android:layout_marginTop="35dp"
+            android:id="@+id/texto"
+            android:text="selecione quantia e um metodo de pagamento:"
+            android:textSize="23sp"></TextView>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/texto"
+            android:id="@+id/quantia"
+            ></EditText>
         <!-- 3 buttoes na horzintal 1 paypal 2 mbway 3 multibanco-->
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/multibanco"
@@ -60,6 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_marginHorizontal="10dp"
+            android:onClick="carregar"
             android:drawableRight="@drawable/multibanco"
             android:text="referencia multibanco"
             android:textSize="18sp"></androidx.appcompat.widget.AppCompatButton>
@@ -71,9 +79,10 @@
             android:layout_height="wrap_content"
             android:layout_above="@+id/multibanco"
             android:layout_centerInParent="true"
+            android:layout_marginHorizontal="10dp"
             android:layout_marginBottom="10dp"
             android:drawableRight="@drawable/mbway"
-            android:layout_marginHorizontal="10dp"
+            android:onClick="carregar"
             android:text="mbway"
             android:textSize="18sp"></androidx.appcompat.widget.AppCompatButton>
 
@@ -84,10 +93,11 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/multibanco"
             android:layout_centerInParent="true"
+            android:layout_marginHorizontal="10dp"
             android:layout_marginTop="10dp"
             android:drawableRight="@drawable/paypallogo"
+            android:onClick="carregar"
             android:text="paypal"
-            android:layout_marginHorizontal="10dp"
             android:textSize="18sp"></androidx.appcompat.widget.AppCompatButton>
 
         <Button

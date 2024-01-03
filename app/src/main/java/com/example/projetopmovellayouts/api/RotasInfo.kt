@@ -1,6 +1,6 @@
 package com.example.projetopmovellayouts.api
 
-data class Rotas(
+data class RotasInfo(
     val id: Int,
     val origem: String,
     val destino: String,
