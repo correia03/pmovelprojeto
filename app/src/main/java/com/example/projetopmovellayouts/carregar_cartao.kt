@@ -1,5 +1,6 @@
 package com.example.projetopmovellayouts
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -22,9 +23,18 @@ class carregar_cartao : AppCompatActivity() {
     }
 
     fun carregar(view: View) {
+        val sharedPreferences = getSharedPreferences("UserId", Context.MODE_PRIVATE)
+        val storedUserId = sharedPreferences.getString("token", "")
+        val userId: Int = try {
+            storedUserId?.toInt() ?: 0 // If the storedUserId is null, use a default value of 0
+        } catch (e: NumberFormatException) {
+            // Handle the case where the storedUserId cannot be converted to an integer
+            // You may want to log an error or provide a default value as needed
+            0
+        }
         val saldo = findViewById<EditText>(R.id.quantia).text.toString().toFloat()
         val request = ServiceBuilder.buildService(EndPoints::class.java)
-        val call = request.addSaldo(AddSaldoResponse(1, saldo))
+        val call = request.addSaldo(AddSaldoResponse(userId, saldo))
         call.enqueue(object : Callback<AddSaldoResponse> {
             override fun onResponse(call: Call<AddSaldoResponse>, response: Response<AddSaldoResponse>) {
                 if (response.isSuccessful){

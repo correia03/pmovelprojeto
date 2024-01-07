@@ -16,7 +16,27 @@
             app:headerLayout="@layout/header_navigation_drawer"/>
          -->
     <!--  Welcome Text  -->
-    <TextView android:id="@+id/welcomeText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/orangeBanner" android:layout_alignParentStart="true" android:layout_marginTop="60dp" android:layout_marginStart="90dp" android:text="Olá, ..." android:textSize="24sp" android:textStyle="bold"/>
+    <TextView android:id="@+id/welcomeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/orangeBanner"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="60dp"
+        android:layout_marginStart="90dp"
+        android:text=""
+        android:textSize="24sp"
+        android:textStyle="bold"/>
+    <TextView android:id="@+id/welcomeName"
+        android:layout_toRightOf="@+id/welcomeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/orangeBanner"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="60dp"
+        android:layout_marginStart="90dp"
+        android:text=""
+        android:textSize="24sp"
+        android:textStyle="bold"/>
     <!--  Silver Rectangle with Yellow Square  -->
     <RelativeLayout android:id="@+id/silverRectangle" android:layout_width="match_parent" android:layout_height="65dp" android:layout_marginTop="10dp" android:layout_marginStart="40dp" android:layout_marginEnd="40dp" android:layout_below="@id/welcomeText" android:background="#C0C0C0">
         <!--  Yellow Square  -->
@@ -25,6 +45,7 @@
     </RelativeLayout>
     <!--  Buttons  -->
     <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent" android:layout_above="@id/bottomBanner" android:layout_below="@id/orangeBanner">
+
         <!--  Button 1  -->
         <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnComprarBilhete" style="@style/RoundedButton" android:layout_width="150dp" android:layout_height="150dp" android:layout_toStartOf="@id/center" android:layout_centerVertical="true" android:layout_marginEnd="16dp" android:text="Comprar Bilhete" android:onClick="buyticket"/>
         <!--  Button 2  -->
