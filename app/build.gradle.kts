@@ -36,6 +36,9 @@ android {
 }
 
 dependencies {
+    //maps
+    implementation("com.google.android.gms:play-services-maps:17.0.0")
+    implementation("com.google.android.gms:play-services-location:17.0.0")
 // recycler
     implementation ("androidx.recyclerview:recyclerview:1.1.0")
     // recycler
