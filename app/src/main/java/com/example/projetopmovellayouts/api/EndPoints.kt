@@ -25,4 +25,6 @@ interface EndPoints {
     @POST("api/info/addsaldo")
     fun addSaldo(@Body saldo: AddSaldoResponse): Call<AddSaldoResponse>
 
+    @POST("api/paragens/getparagens")
+    fun getParagens(@Body request:ParagensRequest): Call<List<ParagemResponse>>
 }

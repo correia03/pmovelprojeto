@@ -14,6 +14,10 @@ import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
+import com.example.projetopmovellayouts.api.EndPoints
+import com.example.projetopmovellayouts.api.ParagemResponse
+import com.example.projetopmovellayouts.api.ParagensRequest
+import com.example.projetopmovellayouts.api.ServiceBuilder
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationRequest
@@ -82,8 +86,8 @@ class Rotas : AppCompatActivity(), OnMapReadyCallback {
             override fun onItemSelected(parentView: AdapterView<*>, selectedItemView: View?, position: Int, id: Long) {
                 // Handle the selected item
                 when (position) {
-                    2 -> showRota("Rota Melgaço-ESTG", 4)
-                    3 -> showRota("Rota ESTG-Ponte de Lima", 5)
+                    1 -> showRota("Rota Melgaço-ESTG", 1)
+                    2 -> showRota("Rota ESTG-Ponte de Lima", 2)
                     // Add more cases for other options if needed
                 }
             }
@@ -97,7 +101,25 @@ class Rotas : AppCompatActivity(), OnMapReadyCallback {
         // Handle the logic for displaying the selected route
         Toast.makeText(this, "Selected Route: $rotaName", Toast.LENGTH_SHORT).show()
 
-        // TODO: Call your web service with the rotaId
+        // (PEREIRA) TODO: Call your web service with the rotaId
+        val request = ServiceBuilder.buildService(EndPoints::class.java)
+        val call = request.getParagens(ParagensRequest(rotaId))
+
+        call.enqueue(object : Callback<List<ParagemResponse>> {
+            override fun onResponse(call: Call<List<ParagemResponse>>, response: Response<List<ParagemResponse>>) {
+                if (response.isSuccessful) {
+                    mMap.clear()
+                    val paragens = response.body()!!
+                    for (paragem in paragens) {
+                        val loc = LatLng(paragem.lat.toDouble(), paragem.long.toDouble())
+                        mMap.addMarker(MarkerOptions().position(loc).title(paragem.nome))
+                    }
+                }
+            }
+            override fun onFailure(call: Call<List<ParagemResponse>>, t: Throwable) {
+                Toast.makeText(this@Rotas, "${t.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
     override fun onPause() {
         super.onPause()
