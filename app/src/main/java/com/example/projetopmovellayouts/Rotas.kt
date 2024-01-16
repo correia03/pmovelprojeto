@@ -20,6 +20,7 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import retrofit2.Call
 import retrofit2.Callback
@@ -33,6 +34,7 @@ class Rotas : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var locationCallback: LocationCallback
     private lateinit var lastLocation: android.location.Location
+    private var userMarker: Marker? = null
 
     companion object {
         private const val LOCATION_PERMISSION_REQUEST_CODE = 1
@@ -56,6 +58,11 @@ class Rotas : AppCompatActivity(), OnMapReadyCallback {
                 lastLocation = p0.lastLocation!!
                 var loc = LatLng(lastLocation.latitude, lastLocation.longitude)
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(loc, 15.0f))
+                if (userMarker == null) {
+                    userMarker = mMap.addMarker(MarkerOptions().position(loc).title("A sua localização"))
+                } else {
+                    userMarker?.position = loc
+                }
                 Log.d("**** TAG", "new location received - " + loc.latitude + " -" + loc.longitude)
 
 
