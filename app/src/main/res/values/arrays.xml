@@ -2,12 +2,7 @@
 <resources>
     <string-array name="options">
         <item>Escolha a sua rota</item>
-        <item>Rota Melgaço-ESTG: Manha</item>
-        <item>Rota Melgaço-ESTG: Tarde</item>
-        <item>Rota ESTG-Ponte de Lima ESTG: Manha</item>
-        <item>Rota ESTG-Ponte de Lima ESTG: Tarde</item>
-        <item>Rota Arcos Valvez- Melgaço: Manha</item>
-        <item>Serviço Carreira: Intermunicipal Manha</item>
-        <item>Serviço Carreira: Intermunicipal Tarde</item>
+        <item>Rota Melgaço-ESTG</item>
+        <item>Rota ESTG-Ponte de Lima </item>
     </string-array>
 </resources>

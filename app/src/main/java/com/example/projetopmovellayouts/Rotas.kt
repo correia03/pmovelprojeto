@@ -2,11 +2,15 @@ package com.example.projetopmovellayouts
 
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Looper
 import android.util.Log
 import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
@@ -69,10 +73,32 @@ class Rotas : AppCompatActivity(), OnMapReadyCallback {
             }
 
         }
+        val spinner = findViewById<Spinner>(R.id.spinnerOptions)
+        val options = resources.getStringArray(R.array.options)
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, options)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner.adapter = adapter
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parentView: AdapterView<*>, selectedItemView: View?, position: Int, id: Long) {
+                // Handle the selected item
+                when (position) {
+                    2 -> showRota("Rota Melgaço-ESTG", 4)
+                    3 -> showRota("Rota ESTG-Ponte de Lima", 5)
+                    // Add more cases for other options if needed
+                }
+            }
 
-
+            override fun onNothingSelected(parentView: AdapterView<*>) {
+                // Do nothing here if needed
+            }
+        }
     }
+    private fun showRota(rotaName: String, rotaId: Int) {
+        // Handle the logic for displaying the selected route
+        Toast.makeText(this, "Selected Route: $rotaName", Toast.LENGTH_SHORT).show()
 
+        // TODO: Call your web service with the rotaId
+    }
     override fun onPause() {
         super.onPause()
         fusedLocationClient.removeLocationUpdates(locationCallback)

@@ -56,7 +56,10 @@ tools:context=".Rotas">
     android:layout_below="@id/orangeBanner"
     android:layout_centerHorizontal="true"
     android:layout_marginTop="20dp"
-    android:entries="@array/options" />
+    android:entries="@array/options"
+    android:background="#F3AB1D"
+    android:spinnerMode="dropdown"
+    />
 
 <!-- Middle -->
 <!-- Add your other UI elements here -->
