@@ -2,6 +2,7 @@ package com.example.projetopmovellayouts
 
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -30,6 +31,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.PolylineOptions
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -42,6 +44,7 @@ class Rotas : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var locationCallback: LocationCallback
     private lateinit var lastLocation: android.location.Location
+    private var selectedRouteId: Int = 0
     private var userMarker: Marker? = null
 
     companion object {
@@ -73,6 +76,9 @@ class Rotas : AppCompatActivity(), OnMapReadyCallback {
                 }
                 Log.d("**** TAG", "new location received - " + loc.latitude + " -" + loc.longitude)
 
+                if (selectedRouteId != 0) {
+                    findAndMarkClosestPoint(selectedRouteId, loc)
+                }
 
             }
 
@@ -86,8 +92,15 @@ class Rotas : AppCompatActivity(), OnMapReadyCallback {
             override fun onItemSelected(parentView: AdapterView<*>, selectedItemView: View?, position: Int, id: Long) {
                 // Handle the selected item
                 when (position) {
-                    1 -> showRota("Rota Melgaço-ESTG", 1)
-                    2 -> showRota("Rota ESTG-Ponte de Lima", 2)
+                    1 -> {
+                        showRota("Rota Melgaço-ESTG", 1)
+                        selectedRouteId = 1
+                    }
+
+                    2 -> {
+                        showRota("Rota ESTG-Ponte de Lima", 2)
+                        selectedRouteId = 2
+                    }
                     // Add more cases for other options if needed
                 }
             }
@@ -108,12 +121,30 @@ class Rotas : AppCompatActivity(), OnMapReadyCallback {
         call.enqueue(object : Callback<List<ParagemResponse>> {
             override fun onResponse(call: Call<List<ParagemResponse>>, response: Response<List<ParagemResponse>>) {
                 if (response.isSuccessful) {
-                    mMap.clear()
                     val paragens = response.body()!!
+
+                    val points = ArrayList<LatLng>()
+
                     for (paragem in paragens) {
-                        val loc = LatLng(paragem.lat.toDouble(), paragem.long.toDouble())
-                        mMap.addMarker(MarkerOptions().position(loc).title(paragem.nome))
+                        val location = LatLng(paragem.lat.toDouble(), paragem.long.toDouble())
+                        points.add(location)
+                        mMap.addMarker(MarkerOptions().position(location).title(paragem.nome))
                     }
+
+                    if (points.size >= 2) {
+                        // Draw polyline if there are at least two points
+                        val polylineOptions = PolylineOptions()
+                            .addAll(points)
+                            .color(Color.BLUE)
+                            .width(5f)
+
+                        // Add Polyline to the map
+                        mMap.addPolyline(polylineOptions)
+
+                        // Move camera to the first point
+                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(points.first(), 15.0f))
+                    }
+
                 }
             }
             override fun onFailure(call: Call<List<ParagemResponse>>, t: Throwable) {
@@ -198,6 +229,65 @@ class Rotas : AppCompatActivity(), OnMapReadyCallback {
             )
             return
         }
+    }
+
+
+    private fun findAndMarkClosestPoint(rotaId: Int, userLocation: LatLng) {
+        val request = ServiceBuilder.buildService(EndPoints::class.java)
+        val call = request.getParagens(ParagensRequest(rotaId))
+
+        call.enqueue(object : Callback<List<ParagemResponse>> {
+            override fun onResponse(call: Call<List<ParagemResponse>>, response: Response<List<ParagemResponse>>) {
+                if (response.isSuccessful) {
+                    val paragens = response.body()!!
+
+                    val points = ArrayList<LatLng>()
+
+                    for (paragem in paragens) {
+                        val location = LatLng(paragem.lat.toDouble(), paragem.long.toDouble())
+                        points.add(location)
+                        mMap.addMarker(MarkerOptions().position(location).title(paragem.nome))
+                    }
+
+                    if (points.isNotEmpty()) {
+                        // Find the closest point to the user's location
+                        val closestPoint = findClosestPoint(points, userLocation)
+
+                        closestPoint?.let {
+                            // Calculate distance to the closest point
+                            val distance = calculateDistance(userLocation, it.position)
+
+                            // Display the distance in a toast message
+                            Toast.makeText(this@Rotas, "Closest Point: ${it.title}, Distance: ${distance} meters", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<List<ParagemResponse>>, t: Throwable) {
+                Toast.makeText(this@Rotas, "${t.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+    private fun findClosestPoint(points: List<LatLng>, userLocation: LatLng): Marker? {
+        var closestPoint: Marker? = null
+        var minDistance = Double.MAX_VALUE
+
+        for (point in points) {
+            val distance = calculateDistance(userLocation, point)
+            if (distance < minDistance) {
+                minDistance = distance
+                closestPoint = mMap.addMarker(MarkerOptions().position(point).title("Closest Point"))
+            }
+        }
+
+        return closestPoint
+    }
+
+    private fun calculateDistance(location1: LatLng, location2: LatLng): Double {
+        val result = FloatArray(1)
+        Location.distanceBetween(location1.latitude, location1.longitude, location2.latitude, location2.longitude, result)
+        return result[0].toDouble()
     }
 
 }
